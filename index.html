@@ -1,0 +1,18 @@
+---
+layout: default
+title: JDBI Documenation
+---
+<div id="page">
+  {% for post in paginator.posts %}
+  <h1 class="emphnext">
+    <a href="{{ post.url }}">{{ post.title }}</a> 
+  </h1>
+  {{ post.content }}
+
+  {% endfor %}
+
+  <div id="pagination">
+    <a href="/getting_jdbi/" class="forward">Getting JDBI ❯❯</a>
+    <a href="/">Home</a> | <a href="/archive.html">Table of Contents</a>
+  </div>
+</div>

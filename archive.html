@@ -1,0 +1,20 @@
+---
+layout: default
+title: Woof?
+section: blog
+---
+<div id="page">
+    <h1>Archives</h1>
+{% for post in site.posts %}
+<h2 class="emphnext">
+  <a href="{{ post.url }}">{{ post.title }}</a> 
+</h2>
+{% endfor %}
+<h2 class="emphnext">
+  <a href="/maven_site/">Maven Site</a> 
+</h2>
+<h2 class="emphnext">
+  <a href="/maven_site/apidocs/">Javadocs</a> 
+</h2>
+
+</div>
