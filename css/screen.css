@@ -61,6 +61,15 @@ a:hover {
 
 sup { line-height: 1ex; }
 
+#navigation {
+    float: right;
+    font-size: .75em;
+}
+
+#navigation a {
+    color: darkgray;
+}
+
 #site {
 	max-width: 48em;
 	margin: 1.5em auto 3em auto;

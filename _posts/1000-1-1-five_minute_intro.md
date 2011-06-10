@@ -1,6 +1,6 @@
 ---
 layout: post
-title: JDBI 5 Minute Introduction
+title: Five Minute Introduction
 ---
 
 [JDBI](http://jdbi.org/) is a SQL convenience library for Java. It attempts to expose relational database access in idiommatic Java, using collections, beans, and so on, while maintaining the same level of detail as JDBC. It exposes two different style APIs, a fluent style and a sql object style.
