@@ -88,7 +88,7 @@ assertThat(rs.next(), equalTo("Keith"));
 assertThat(rs.hasNext(), equalTo(false));
 {% endhighlight %}
 
-Finally, Query implements [Iterable](http://download.oracle.com/javase/6/docs/api/java/lang/Iterable.html) so we can do things like
+Additionally, Query implements [Iterable](http://download.oracle.com/javase/6/docs/api/java/lang/Iterable.html) so we can do things like
 
 {% highlight java %}
 for (String name : h.createQuery("select name from something order by id").map(StringMapper.FIRST))
@@ -96,4 +96,24 @@ for (String name : h.createQuery("select name from something order by id").map(S
     assertThat(name, equalsOneOf("Brian", "Keith"));
 }
 {% endhighlight %}
+
+The final means of traversing a result set is to [fold across it](http://en.wikipedia.org/wiki/Fold_(higher-order_function))
+
+{% highlight java %}
+StringBuilder rs = h.createQuery("select name from something order by id")
+                    .map(StringMapper.FIRST)
+                    .fold(new StringBuilder(), new Folder2<StringBuilder>()
+                    {
+                        public StringBuilder fold(StringBuilder acc, ResultSet rs, StatementContext ctx) throws SQLException
+                        {
+                            acc.append(rs.getString(1)).append(", ");
+                            return acc;
+                        }
+                    });
+
+rs.delete(rs.length() - 2, rs.length()); // trim the extra ", "
+assertThat(rs.toString(), equalTo("Mark, Tatu"));
+{% endhighlight %}
+
+We supply an implementation of [Folder2](http://jdbi.org/maven_site/apidocs/org/skife/jdbi/v2/Folder2.html) which receives the first argument and first row to the fold() call to the initial invocation, and returns a value to be passed to the next invocation, along with the next row, and so on until the last row in the result set, the value returned from the last invocation will be returned from the fold() call.
 
