@@ -16,6 +16,10 @@ public interface SomeQueries
 
   @SqlQuery("select name from something")
   Iterator<String> findAllNames();
+  
+  @SqlQuery("select name from something where id = :id")
+  Query<String> queryById(@Bind("id") int id);
+
 }
 {% endhighlight %}
 
@@ -24,6 +28,8 @@ The first method, <code>findName</code> infers that you want only the first resu
 The second method, <code>findNamesBetween</code> will again infer that we are looking for a String, and pull the first string from each row of the result set. Because it returns a <code>java.util.List</code> it will eagerly map each row to a String and return the full result set.
 
 The third method, <code>findAllNames</code> does the same String extraction from each row, but because the method returns a <code>java.util.Iterator</code> it loads results lazily, only traversing the result set as <code>Iterator#next</code> or <code>Iterator#hasNext</code> is called. The iterator returned is actually a [ResultIterator](/maven_site/apidocs/org/skife/jdbi/v2/ResultIterator.html). The underlying result set will be closed when the <code>ResultIterator#close</code> method is invoked, or when the end of the result set is reached.
+
+The final method, <code>queryById</code> returns a [Query](/maven_site/apidocs/org/skife/jdbi/v2/Query.html) instance mapped to a string. This form binds what it knows about, applies customizers, and returns the [fluent-api query](/fluent_queries/) instance which has not yet been executed.
 
 As with String, mappings for singular primitive types in the first position of the result set are provided out of the box by JDBI. For more sophisticated mappings you can register [ResultSetMapper](/maven_site/apidocs/org/skife/jdbi/v2/tweak/ResultSetMapper.html) or [ResultSetMapperFactory](/maven_site/apidocs/org/skife/jdbi/v2/ResultSetMapperFactory.html) instances with either the DBI, the Handle, or on the sql object or individual method. Take for example the following result set mapper and class it maps to:
 
@@ -96,3 +102,4 @@ public interface YetAnotherQuery
 {% endhighlight %}
 
 You can also register result set mappers on the <code>DBI</code> or <code>Handle</code> instance the sql object is attached to.
+
