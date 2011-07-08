@@ -3,7 +3,7 @@ layout: post
 title: SQL Object Queries
 ---
 
-Queries are denoted on sql object interfaces via the <code>@SqlQuery</code> annotation on a method. The return type of the method indicates what to do with the result set. Take the following queries:
+Queries are denoted on sql object interfaces via the <code>@SqlQuery</code> annotation on the query methods. The return type of the method indicates what to do with the result set. Take the following queries:
 
 {% highlight java %}
 public interface SomeQueries
