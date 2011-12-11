@@ -1,3 +1,4 @@
 pygments: true
 paginate: 1
 permalink: /:title
+exclude: [Rakefile, Gemfile, Gemfile.lock, .bundle]
