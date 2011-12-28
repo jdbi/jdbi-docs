@@ -19,7 +19,7 @@ Once a DBI is obtained there are a number of configurable options on it. These i
 
 # Handles
 
-Handles can be obtained from a DBI bi opening it as such:
+Handles can be obtained from a DBI by opening it as such:
 
 {% highlight java %}
 DBI dbi = new DBI("jdbc:h2:mem:test");
@@ -29,7 +29,7 @@ Handle handle = dbi.open();
 handle.close();
 {% endhighlight %}
 
-This requires expicitely closing the handle when you are through with it. The alternative is to pass in a callback which will receive an open handle, and will ensure it is closed when the callback completes, as follows:
+This requires explicitly closing the handle when you are through with it. The alternative is to pass in a callback which will receive an open handle, and will ensure it is closed when the callback completes, as follows:
 
 {% highlight java %}
 DBI dbi = new DBI("jdbc:h2:mem:test");
@@ -47,7 +47,7 @@ Handles are used to create and execute statements, queries, calls, batches, and 
 
 # Direct Statements
 
-The simplest way to execute statements on a handle is direct execution via the Handle#execute and Handle#query
+The simplest way to execute statements on a handle is direct execution via the Handle#execute and Handle#query:
 
 {% highlight java %}
 DBI dbi = new DBI("jdbc:h2:mem:test");
