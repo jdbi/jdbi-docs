@@ -22,5 +22,5 @@ end
 
 desc "push current blog to site"
 task :push => [:build] do
-  sh "rsync -vtr --delete _site/ lasker.skife.org:/www/jdbi.org/"
+  sh "rsync -vr --delete _site/ lasker.skife.org:/www/jdbi.org/"
 end
