@@ -1,3 +1,4 @@
+.rbenv-*
 .bundle
 _vendor
 _site
