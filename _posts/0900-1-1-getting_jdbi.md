@@ -12,11 +12,11 @@ To make use of JDBI in an [Apache Maven](http://maven.apache.org/) based project
 <dependency>
   <groupId>org.jdbi</groupId>
   <artifactId>jdbi</artifactId>
-  <version>2.17</version>
+  <version>${jdbi.version}</version>
 </dependency>
 {% endhighlight %}
 
-Correct the &lt;version&gt; element to include the version of JDBI you write. The 2.17 version happens to be the most recent version at the time I am writing this documentation.
+You can find the most recent version of JDBI in [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22jdbi%22).
 
 # Download Jar
 The JDBI release jar files are available from [Maven Central](http://search.maven.org/#browse%7C1912065227).
