@@ -3,7 +3,7 @@ layout: post
 title: Fluent Queries
 ---
 
-[Query](http://jdbi.org/maven_site/apidocs/org/skife/jdbi/v2/Query.html) instances are [SQLStatement](http://jdbi.org/maven_site/apidocs/org/skife/jdbi/v2/SQLStatement.html) instances specialized for SQL queries. They are created from [Handle](http://jdbi.org/maven_site/apidocs/org/skife/jdbi/v2/Handle.html) instances, and support fluent-style method chaining.
+[Query](http://jdbi.org/apidocs/org/skife/jdbi/v2/Query.html) instances are [SQLStatement](http://jdbi.org/apidocs/org/skife/jdbi/v2/SQLStatement.html) instances specialized for SQL queries. They are created from [Handle](http://jdbi.org/apidocs/org/skife/jdbi/v2/Handle.html) instances, and support fluent-style method chaining.
 
 Queries are parameterized with the type each row in the result set will be mapped to, for example:
 
@@ -25,7 +25,7 @@ assertThat(rs, equalTo(asList("Brian", "Keith")));
 h.close();
 {% endhighlight %}
 
-The defauly representation of a result row is a Map&lt;String, Object&gt;, as can be seen when the Query is first created. To map the rows to something else we use a [ResultSetMapper](http://jdbi.org/maven_site/apidocs/org/skife/jdbi/v2/tweak/ResultSetMapper.html). A number of mappers are included, such as the [StringMapper](http://jdbi.org/maven_site/apidocs/org/skife/jdbi/v2/util/StringMapper.html) static instance we use here to extract a String from position 1 (the first thing) in each row.
+The defauly representation of a result row is a Map&lt;String, Object&gt;, as can be seen when the Query is first created. To map the rows to something else we use a [ResultSetMapper](http://jdbi.org/apidocs/org/skife/jdbi/v2/tweak/ResultSetMapper.html). A number of mappers are included, such as the [StringMapper](http://jdbi.org/apidocs/org/skife/jdbi/v2/util/StringMapper.html) static instance we use here to extract a String from position 1 (the first thing) in each row.
 
 Finally, we execute the query via one of several methods, in this case list(), which eagerly maps all rows and stores them in a List.
 
@@ -74,7 +74,7 @@ assertThat(rs.hasNext(), equalTo(false));
 rs.close();
 {% endhighlight %}
 
-Here we can see we actually get back a sub-interface of Iterator called [ResultIterator](http://jdbi.org/maven_site/apidocs/org/skife/jdbi/v2/ResultIterator.html) which defines a close() method. We can call the close() to close the result set and prepared statement underlying the query.
+Here we can see we actually get back a sub-interface of Iterator called [ResultIterator](http://jdbi.org/apidocs/org/skife/jdbi/v2/ResultIterator.html) which defines a close() method. We can call the close() to close the result set and prepared statement underlying the query.
 
 If we know we will traverse to the end of the result set, we don't need to call close() explicitely. The call to Iterator#hasNext which returns false will automatically close the results, so we can write the above as
 
@@ -115,5 +115,5 @@ rs.delete(rs.length() - 2, rs.length()); // trim the extra ", "
 assertThat(rs.toString(), equalTo("Mark, Tatu"));
 {% endhighlight %}
 
-We supply an implementation of [Folder2](http://jdbi.org/maven_site/apidocs/org/skife/jdbi/v2/Folder2.html) which receives the first argument and first row to the fold() call to the initial invocation, and returns a value to be passed to the next invocation, along with the next row, and so on until the last row in the result set, the value returned from the last invocation will be returned from the fold() call.
+We supply an implementation of [Folder2](http://jdbi.org/apidocs/org/skife/jdbi/v2/Folder2.html) which receives the first argument and first row to the fold() call to the initial invocation, and returns a value to be passed to the next invocation, along with the next row, and so on until the last row in the result set, the value returned from the last invocation will be returned from the fold() call.
 
