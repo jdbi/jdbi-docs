@@ -5,13 +5,13 @@ title: DBI, Handles, and SQL Statements
 
 # DBI
 
-When starting with JDBI, the first thing you need to do is construct a [DBI](http://jdbi.org/maven_site/apidocs/org/skife/jdbi/v2/DBI.html) instance. The DBI instance provides connections to the database via [Handle](http://jdbi.org/maven_site/apidocs/org/skife/jdbi/v2/Handle.html) instances. DBIs can be constructed three primary ways.
+When starting with JDBI, the first thing you need to do is construct a [DBI](http://jdbi.org/apidocs/org/skife/jdbi/v2/DBI.html) instance. The DBI instance provides connections to the database via [Handle](http://jdbi.org/apidocs/org/skife/jdbi/v2/Handle.html) instances. DBIs can be constructed three primary ways.
 
 The first is to pass a JDBC [DataSource](http://download.oracle.com/javase/6/docs/api/javax/sql/DataSource.html) instance to the constructor. In this case connections will be obtained from the datasource. This is generally the best option for cases where you want connection pooling.
 
-The second method is to pass in a combination of a JDBC url, properties, and/or a username and password. See the constructors on [DBI](http://jdbi.org/maven_site/apidocs/org/skife/jdbi/v2/DBI.html) for the exact combinations. All these forms pass through to the JDBC [DriverManager](http://download.oracle.com/javase/6/docs/api/java/sql/DriverManager.html) against its matching static methods.
+The second method is to pass in a combination of a JDBC url, properties, and/or a username and password. See the constructors on [DBI](http://jdbi.org/apidocs/org/skife/jdbi/v2/DBI.html) for the exact combinations. All these forms pass through to the JDBC [DriverManager](http://download.oracle.com/javase/6/docs/api/java/sql/DriverManager.html) against its matching static methods.
 
-The third form uses a JDBI specific interface, [ConnectionFactory](http://jdbi.org/maven_site/apidocs/org/skife/jdbi/v2/tweak/ConnectionFactory.html) which allows for unusual ways of obtaining connections, such as for interfacing with thread-bound connection instances in Spring, or other exotic techniques.
+The third form uses a JDBI specific interface, [ConnectionFactory](http://jdbi.org/apidocs/org/skife/jdbi/v2/tweak/ConnectionFactory.html) which allows for unusual ways of obtaining connections, such as for interfacing with thread-bound connection instances in Spring, or other exotic techniques.
 
 ## DBI Options
 
@@ -68,7 +68,7 @@ Direct statements work fine for simple DML and when SQL is not being [externaliz
 
 # Creating SQLStatements
 
-A more sophisticated way to execute sql is to create [SQLStatement](http://jdbi.org/maven_site/apidocs/org/skife/jdbi/v2/SQLStatement.html) instances. Variants exist for [calls](/fluent_calls), updates, [queries](/fluent_queries/), and [prepared batches](/fluent_batches/). The general form for updates looks like:
+A more sophisticated way to execute sql is to create [SQLStatement](http://jdbi.org/apidocs/org/skife/jdbi/v2/SQLStatement.html) instances. Variants exist for [calls](/fluent_calls), updates, [queries](/fluent_queries/), and [prepared batches](/fluent_batches/). The general form for updates looks like:
 
 {% highlight java %}
 DBI dbi = new DBI("jdbc:h2:mem:test");
@@ -83,7 +83,7 @@ h.createStatement("insert into something(id, name) values (:id, :name)")
 h.close();
 {% endhighlight %}        
 
-The call to Handle#createStatement creates an [Update](http://jdbi.org/maven_site/apidocs/org/skife/jdbi/v2/Update.html) instance, which we then bind two [named arguments](/named_parameters/) to, and finally execute. In addition to binding parameters, we can set properties on the generated statement, such as the query timeout. SQLStatement instances generally return the same instance from each call on the statement, until the statement is executed. This allows for method chaining, as above. This method chaining is by no means required, however. The above example works the same way when written as:
+The call to Handle#createStatement creates an [Update](http://jdbi.org/apidocs/org/skife/jdbi/v2/Update.html) instance, which we then bind two [named arguments](/named_parameters/) to, and finally execute. In addition to binding parameters, we can set properties on the generated statement, such as the query timeout. SQLStatement instances generally return the same instance from each call on the statement, until the statement is executed. This allows for method chaining, as above. This method chaining is by no means required, however. The above example works the same way when written as:
 
 {% highlight java %}
 Update s = h.createStatement("insert into something(id, name) values (:id, :name)");
