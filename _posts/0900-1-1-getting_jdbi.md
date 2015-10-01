@@ -22,7 +22,7 @@ You can find the most recent version of JDBI in [Maven Central](http://search.ma
 The JDBI release jar files are available from [Maven Central](http://search.maven.org/#browse%7C1912065227).
 
 # Source Code
-The primary repository for JDBI is on Github at [http://github.com/brianm/jdbi/](http://github.com/brianm/jdbi)
+The primary repository for JDBI is on Github at [http://github.com/jdbi/jdbi/](http://github.com/jdbi/jdbi)
 
 # Mailing List
 JDBI's mailing list is hosted as a Google Group at [https://groups.google.com/group/jdbi](https://groups.google.com/group/jdbi)
