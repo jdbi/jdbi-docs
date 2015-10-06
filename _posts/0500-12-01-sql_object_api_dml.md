@@ -3,7 +3,7 @@ layout: post
 title: SQL Object Data Manipulation
 ---
 
-Update, insert, and data definition statements are indicated in the SQL Object API via the <code>@SqlUpdate</code> annotation. The methods for these statements must have either <code>void</code> or <code>int</code> return types. If the return type is <code>int</code>, the the value will be the number of rows changed.
+Update, insert, and data definition statements are indicated in the SQL Object API via the <code>@SqlUpdate</code> annotation. The methods for these statements must have either <code>void</code> or <code>int</code> return types. If the return type is <code>int</code>, then the value will be the number of rows changed. Alternatively, if the method is annotated with <code>@GetGeneratedKeys</code>, then the return value with be the auto-generated keys.
 
 Update methods look like
 
