@@ -25,7 +25,7 @@ assertThat(rs, equalTo(asList("Brian", "Keith")));
 h.close();
 {% endhighlight %}
 
-The defauly representation of a result row is a Map&lt;String, Object&gt;, as can be seen when the Query is first created. To map the rows to something else we use a [ResultSetMapper](http://jdbi.org/apidocs/org/skife/jdbi/v2/tweak/ResultSetMapper.html). A number of mappers are included, such as the [StringMapper](http://jdbi.org/apidocs/org/skife/jdbi/v2/util/StringMapper.html) static instance we use here to extract a String from position 1 (the first thing) in each row.
+The default representation of a result row is a Map&lt;String, Object&gt;, as can be seen when the Query is first created. To map the rows to something else we use a [ResultSetMapper](http://jdbi.org/apidocs/org/skife/jdbi/v2/tweak/ResultSetMapper.html). A number of mappers are included, such as the [StringMapper](http://jdbi.org/apidocs/org/skife/jdbi/v2/util/StringMapper.html) static instance we use here to extract a String from position 1 (the first thing) in each row.
 
 Finally, we execute the query via one of several methods, in this case list(), which eagerly maps all rows and stores them in a List.
 
