@@ -3,7 +3,7 @@ layout: post
 title: Five Minute Introduction
 ---
 
-[JDBI](http://jdbi.org/) is a SQL convenience library for Java. It attempts to expose relational database access in idiommatic Java, using collections, beans, and so on, while maintaining the same level of detail as JDBC. It exposes two different style APIs, a fluent style and a sql object style.
+[JDBI](http://jdbi.org/) is a SQL convenience library for Java. It attempts to expose relational database access in idiomatic Java, using collections, beans, and so on, while maintaining the same level of detail as JDBC. It exposes two different style APIs, a fluent style and a sql object style.
 
 # Fluent API
 The fluent style looks like:
