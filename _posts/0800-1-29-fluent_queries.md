@@ -60,7 +60,7 @@ assertThat(rs, equalTo("Brian"));
 
 The first() method sets the max rows to 1, then extracts the value from just that first row of the result set.
 
-The iterator() method works a bit differently then first() and list(). It returns an Interator which lazily traverses the result set, leaving them open until either the iterator is closed, or the end is reached.
+The iterator() method works a bit differently then first() and list(). It returns an Iterator which lazily traverses the result set, leaving them open until either the iterator is closed, or the end is reached.
 
 {% highlight java %}
 ResultIterator<String> rs = h.createQuery("select name from something order by id")
