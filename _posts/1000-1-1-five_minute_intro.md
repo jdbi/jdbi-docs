@@ -21,7 +21,7 @@ h.execute("insert into something (id, name) values (?, ?)", 1, "Brian");
 
 String name = h.createQuery("select name from something where id = :id")
                     .bind("id", 1)
-                    .map(StringMapper.FIRST)
+                    .map(StringColumnMapper.INSTANCE)
                     .first();
                     
 assertThat(name, equalTo("Brian"));
@@ -31,7 +31,7 @@ h.close();
 
 The DBI type is analogous to a JDBC DataSource, and will usually be constructed by passing in a JDBC DataSource. There are alternate constructors which take JDBC URL and credentials, and other means. From the DBI instance you obtain Handle instances. A Handle represents a single connection to the database. Handles rely on an underlying JDBC connection object.
 
-With a handle you may create and execute statements, queries, calls, batches, or prepared batches. In the above example we execute a statement to define a table, execute another statement, this time with two positional arguments to insert a value, and finally construct a query, bind a value to a named argument in the query, map the results to a a String, and take the first result which comes back.
+With a handle you may create and execute statements, queries, calls, batches, or prepared batches. In the above example we execute a statement to define a table, execute another statement, this time with two positional arguments to insert a value, and finally construct a query, bind a value to a named argument in the query, map the results to a String, and take the first result which comes back.
 
 The named argument facility on statements and queries is provided by JDBI -- it parses out the SQL and uses positional parameters when actually constructing the prepared statements. The above example uses the default colon-demarcated parser, but an alternative hash delimited parser is included as well for use with databases which use colons in their grammars, such as [PostgreSQL](http://www.postgresql.org/).
 
