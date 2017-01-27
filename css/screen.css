@@ -216,13 +216,10 @@ pre {
 	background: white;
 	border: 1px solid #ddc;
 	padding: 0.5em 1em;
-	overflow: hidden;
+	overflow-x: auto;
+	overflow-y: hidden;
 }
 
-pre:hover {
-	border-right: none;
-	overflow: visible;
-}
 code {
 	font-size: 1em;
 	background-color: #f7f7ff;
