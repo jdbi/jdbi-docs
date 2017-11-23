@@ -4,18 +4,18 @@ section: blog
 ---
 <div id="page">
     <h1 class="emphnext">
-      	<a href="{{ post.url }}">{{ page.title }}</a> 
+      	<a href="/jdbi2/{{ post.url }}">{{ page.title }}</a> 
     </h1>
 {{ content }}
     <div id="pagination">
         {% if page.next.url %}
-            <a href="{{ page.next.url }}" class="back">❮❮ {{ page.next.title }} </a>
+            <a href="/jdbi2/{{ page.next.url }}" class="back">❮❮ {{ page.next.title }} </a>
         {% endif %}
         
-        <a href="/">Home</a> | <a href="/archive.html">Docs</a>
+        <a href="/jdbi2/">Home</a> | <a href="/archive.html">Docs</a>
         
         {% if page.previous.url %}
-            <a href="{{ page.previous.url }}" class="forward"> {{ page.previous.title }} ❯❯</a>
+            <a href="/jdbi2/{{ page.previous.url }}" class="forward"> {{ page.previous.title }} ❯❯</a>
         {% endif %}
     </div>
 </div>
