@@ -1,4 +1,4 @@
-= This is the documentation for JDBI v2
+# This is the documentation for JDBI v2
 
 *this repository is for an old, unmaintained version of JDBI*
 
